@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)net.ibm.data.db2/9.0.0.100/buildTransitive/Net.IBM.Data.Db2.targets" Condition="Exists('$(NuGetPackageRoot)net.ibm.data.db2/9.0.0.100/buildTransitive/Net.IBM.Data.Db2.targets')" />
+  </ImportGroup>
+</Project>

@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <RootNamespace>ParameterMarkers</RootNamespace>
+        <TargetFramework>net9.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Net.IBM.Data.Db2" Version="9.0.0.100" />
+      <PackageReference Include="Unity" Version="5.11.10" />
+    </ItemGroup>
+
+</Project>
