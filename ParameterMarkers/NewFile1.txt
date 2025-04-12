@@ -1,9 +1,0 @@
-
-
-Public Class Startup
-    Public Shared Sub ConfigureContainer(container As IUnityContainer)
-        ' Register DB2MetadataHelper as a singleton since it has an internal cache  
-        container.RegisterType(Of IDB2MetadataHelper, DB2MetadataHelper)(New ContainerControlledLifetimeManager(), 
-            New InjectionConstructor(ConfigurationManager.ConnectionStrings("YourDB2Connection").ConnectionString))
-    End Sub
-End Class
