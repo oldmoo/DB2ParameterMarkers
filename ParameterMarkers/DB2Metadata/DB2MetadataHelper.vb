@@ -9,8 +9,8 @@ Namespace DB2Metadata
     
         Private ReadOnly _connectionString As String
         'Mettre en cache les métadonnées des colonnes pour éviter les recherches répétées
-        Private ReadOnly _columnMetadataCache As New ConcurrentDictionary(Of String, List(Of DB2ColumnMetadata))
-        private _columnMetadata As List(Of DB2ColumnMetadata)
+        Private ReadOnly _columnMetadataCache As New ConcurrentDictionary(Of String, List(Of Db2ColumnMetadata))
+        private _columnMetadata As List(Of Db2ColumnMetadata)
 
     
         Public Sub New(connectionString As String)
@@ -21,7 +21,7 @@ Namespace DB2Metadata
         End Sub
     
         'Obtenir les métadonnées de colonne pour une table spécifique
-        Public Function GetColumnMetadata(schemaName As String, tableName As String) As List(Of DB2ColumnMetadata) Implements IDb2MetadataHelper.GetColumnMetadata
+        Public Function GetColumnMetadata(schemaName As String, tableName As String) As List(Of Db2ColumnMetadata) Implements IDb2MetadataHelper.GetColumnMetadata
             If String.IsNullOrWhiteSpace(schemaName) OrElse String.IsNullOrWhiteSpace(tableName) Then
                 Throw New ArgumentException("Le nom du schéma et le nom de la table ne doivent pas être vides")
             End If
@@ -33,7 +33,7 @@ Namespace DB2Metadata
         End Function
         
         ' Convertir le type de données DB2 en énumération DB2Type
-        Public Shared Function GetDB2Type(dataType As String) As DB2Type Implements IDb2MetadataHelper.GetDB2Type
+        Public  Function GetDB2Type(dataType As String) As DB2Type Implements IDb2MetadataHelper.GetDB2Type
             Select Case dataType.Trim().ToUpper()
                 Case "VARCHAR", "VARGRAPHIC", "LONGVAR"
                     Return DB2Type.VarChar
@@ -68,7 +68,7 @@ Namespace DB2Metadata
             End Select
         End Function
 
-        Private Function LoadColumnMetadata(schemaName As String, tableName As String) As List(Of DB2ColumnMetadata)
+        Private Function LoadColumnMetadata(schemaName As String, tableName As String) As List(Of Db2ColumnMetadata)
             Try
                 Return LoadColumnMetadataInternal(schemaName, tableName)
             Catch ex As DB2Exception
@@ -76,8 +76,8 @@ Namespace DB2Metadata
             End Try
         End Function
         
-        Private Function LoadColumnMetadataInternal(schemaName As String, tableName As String) As List(Of DB2ColumnMetadata)
-            Dim columns As New List(Of DB2ColumnMetadata)
+        Private Function LoadColumnMetadataInternal(schemaName As String, tableName As String) As List(Of Db2ColumnMetadata)
+            Dim columns As New List(Of Db2ColumnMetadata)
         
             Using conn As New DB2Connection(_connectionString)
                 conn.Open()
@@ -104,7 +104,7 @@ Namespace DB2Metadata
                 
                     Using reader As DB2DataReader = cmd.ExecuteReader()
                         While reader.Read()
-                            columns.Add(New DB2ColumnMetadata() With {
+                            columns.Add(New Db2ColumnMetadata() With {
                                            .ColumnName = reader("NAME").ToString(),
                                            .DataType = reader("COLTYPE").ToString(),
                                            .Length = Convert.ToInt32(reader("LENGTH")),

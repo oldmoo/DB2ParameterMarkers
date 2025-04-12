@@ -10,7 +10,7 @@ Namespace Repository
     Protected ReadOnly _metadataHelper As Db2MetadataHelper
     Protected ReadOnly _schemaName As String
     Protected ReadOnly _tableName As String
-    Protected _columnMetadata As List(Of DB2ColumnMetadata)
+    Protected _columnMetadata As List(Of Db2ColumnMetadata)
     Private _disposed As Boolean = False
 
     

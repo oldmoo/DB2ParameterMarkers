@@ -1,5 +1,5 @@
 Namespace DB2Metadata
-    Public Class DB2ColumnMetadata
+    Public Class Db2ColumnMetadata
         Public Property ColumnName As String
         Public Property DataType As String
         Public Property Length As Integer

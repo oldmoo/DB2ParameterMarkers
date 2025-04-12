@@ -15,7 +15,7 @@ Imports System.Reflection
 <Assembly: System.Reflection.AssemblyCompanyAttribute("ParameterMarkers"),  _
  Assembly: System.Reflection.AssemblyConfigurationAttribute("Debug"),  _
  Assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0"),  _
- Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0"),  _
+ Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+17a12a3922a8eae5eabf389f2db854461eedc9d6"),  _
  Assembly: System.Reflection.AssemblyProductAttribute("ParameterMarkers"),  _
  Assembly: System.Reflection.AssemblyTitleAttribute("ParameterMarkers"),  _
  Assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")> 
