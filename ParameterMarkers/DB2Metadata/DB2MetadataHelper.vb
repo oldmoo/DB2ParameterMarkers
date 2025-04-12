@@ -138,7 +138,7 @@ Namespace DB2Metadata
             cleanParamName = columnName.Substring(1)
         End If
         
-        ' Find column metadata
+        ' Rechercher les métadonnées des colonnes
         Dim metadata = _columnMetadata.FirstOrDefault(Function(c) c.ColumnName.Equals(cleanParamName, StringComparison.OrdinalIgnoreCase))
         
 '        If metadata Is Nothing Then
